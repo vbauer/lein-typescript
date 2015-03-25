@@ -1,3 +1,6 @@
+/**
+ * Just a simple class.
+ */
 class Student {
     fullname : string;
     constructor(public firstname, public middleinitial, public lastname) {

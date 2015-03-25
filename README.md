@@ -7,6 +7,12 @@ lein-typescript
 [![Dependencies Status](http://jarkeeper.com/vbauer/lein-typescript/status.png)](http://jarkeeper.com/vbauer/lein-typescript)
 
 
+> **TypeScript** is a free and open source programming language developed and maintained by Microsoft. It is a strict superset of JavaScript, and adds optional static typing and class-based object-oriented programming to the language. - (Wikipedia)[http://en.wikipedia.org/wiki/TypeScript]
+
+
+lein-typescript is a Leiningen plugin that allows to use TypeScript compiler.
+
+
 Pre-requirements
 ================
 
@@ -33,7 +39,12 @@ Configuration
 To configure lein-typescript, put the :typescript parameter in the file project.clj. It could be a single configuration (simple map) or a collection of configurations (for multiple configuration).
 
 ```clojure
-; TODO: Add an example
+:typescript {
+  :sources ["*.ts" "resources/*.ts"]
+  :excludes ["bad.ts"]
+  :out "app.js"
+  :remove-comments true
+}
 ```
 
 
@@ -48,8 +59,10 @@ Configuration parameters
   <dd>List of glob patterns to prevent processing of some files. It is also possible to use both variants: single pattern and collection of patterns.</dd>
 
   <dt>:out</dt>
-  <dd>Concatenate and emit output to single file which you can specify using this parameter.</dd>
+  <dd>Concatenate and emit output to single file which you can specify using this parameter (it is undefined by default).</dd>
 
+  <dt>:remove-comments</dt>
+  <dd>Do not emit comments to output (default value is `false`).</dd>
 </dl>
 
 
