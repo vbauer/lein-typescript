@@ -14,4 +14,5 @@
 
   ; lein-typescript configuration
   :typescript {:sources ["resources\\*.ts"]
-               :excludes ["123"]})
+               :excludes ["123"]
+               :out "resources\\app.js"})

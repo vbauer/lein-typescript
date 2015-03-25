@@ -25,11 +25,6 @@
 (defn- file-path [& parts] (string/join File/separator parts))
 (defn- abs-path [f] (.getAbsolutePath f))
 
-(defn- join-files [files output]
-  (let [js (reduce str (map slurp files))]
-    (spit output js)
-    output))
-
 
 ; Internal API: Configuration
 
@@ -44,6 +39,7 @@
 
 (defn- conf-sources [conf] (config-files conf :sources))
 (defn- conf-excludes [conf] (config-files conf :excludes))
+(defn- conf-out [conf] (get conf :out))
 (defn- conf-debug [conf] (get conf :debug false))
 
 
@@ -58,6 +54,7 @@
               "Source list is empty. Check parameters :sources & :excludes"))
       (map abs-path sources))))
 
+(defn- param-out [conf] (if-let [out (conf-out conf)] ["--out" out]))
 
 
 ; Internal API: Runner
@@ -68,6 +65,7 @@
 
 (defn- typescript-params [conf]
   (concat
+   (param-out conf)
    (source-list conf)))
 
 (defn- compile-typescript [project conf]

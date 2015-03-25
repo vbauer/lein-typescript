@@ -12,14 +12,8 @@ Pre-requirements
 
 Install [NodeJS](http://nodejs.org/) and [NPM](https://github.com/npm/npm) (package manager for Node) to install TypeScript:
 
-* On Ubuntu:
-```
-sudo apt-get install nodejs
-```
-* On Mac OS X:
-```
-brew install node
-```
+* On Ubuntu: `sudo apt-get install nodejs`
+* On Mac OS X: `brew install node`
 
 
 Installation
@@ -27,22 +21,10 @@ Installation
 
 Install [TypeScript](https://www.npmjs.org/package/typescript) to use lein-typescript plugin. It could be done in few ways:
 
-* Use NPM to install TypeScript globally:
-```
-npm install typescript -g
-```
-* You can also install TypeScript in the current directory:
-```
-npm install typescript
-```
-* Use [lein-npm](https://github.com/bodil/lein-npm) plugin:
-```
-lein npm install
-```
-* Use just Leiningen:
-```
-lein deps
-```
+* Use NPM to install TypeScript globally: `npm install typescript -g`
+* You can also install TypeScript in the current directory: `npm install typescript`
+* Use [lein-npm](https://github.com/bodil/lein-npm) plugin: `lein npm install`
+* Use just Leiningen: `lein deps`
 
 
 Configuration
@@ -57,7 +39,18 @@ To configure lein-typescript, put the :typescript parameter in the file project.
 
 Configuration parameters
 ------------------------
-TODO: Add details
+<dl>
+
+  <dt>:sources</dt>
+  <dd>List of input CoffeeScript sources. It is possible to use a single source or a vector of sources. To configure this parameter, you could also use a <a href="http://en.wikipedia.org/wiki/Glob_(programming)">Glob Patterns</a>.</dd>
+
+  <dt>:excludes</dt>
+  <dd>List of glob patterns to prevent processing of some files. It is also possible to use both variants: single pattern and collection of patterns.</dd>
+
+  <dt>:out</dt>
+  <dd>Concatenate and emit output to single file which you can specify using this parameter.</dd>
+
+</dl>
 
 
 Hooks
