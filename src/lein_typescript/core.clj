@@ -40,6 +40,7 @@
 (defn- conf-sources [conf] (config-files conf :sources))
 (defn- conf-excludes [conf] (config-files conf :excludes))
 (defn- conf-out [conf] (get conf :out))
+(defn- conf-out-dir [conf] (get conf :out-dir))
 (defn- conf-debug [conf] (get conf :debug false))
 (defn- conf-remove-comments [conf] (get conf :remove-comments false))
 
@@ -56,6 +57,7 @@
       (map abs-path sources))))
 
 (defn- param-out [conf] (if-let [out (conf-out conf)] ["--out" out]))
+(defn- param-out-dir [conf] (if-let [out-dir (conf-out-dir conf)] ["--outDir" out-dir]))
 (defn- param-remove-comments [conf] (if (conf-remove-comments conf) ["--removeComments"]))
 
 
@@ -68,6 +70,7 @@
 (defn- typescript-params [conf]
   (concat
    (param-out conf)
+   (param-out-dir conf)
    (param-remove-comments conf)
    (source-list conf)))
 

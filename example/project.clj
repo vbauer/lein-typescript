@@ -15,5 +15,6 @@
   ; lein-typescript configuration
   :typescript {:sources ["resources\\*.ts"]
                :excludes ["123"]
-               :out "resources\\app.js"
+               ;:out "app.js"
+               :out-dir "target"
                :remove-comments true})

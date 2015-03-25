@@ -5,7 +5,7 @@ lein-typescript
 [![Dependencies Status](http://jarkeeper.com/vbauer/lein-typescript/status.png)](http://jarkeeper.com/vbauer/lein-typescript)
 
 
-> **TypeScript** is a free and open source programming language developed and maintained by Microsoft. It is a strict superset of JavaScript, and adds optional static typing and class-based object-oriented programming to the language. - (Wikipedia)[http://en.wikipedia.org/wiki/TypeScript]
+> **TypeScript** is a free and open source programming language developed and maintained by Microsoft. It is a strict superset of JavaScript, and adds optional static typing and class-based object-oriented programming to the language. - [Wikipedia](https://en.wikipedia.org/wiki/TypeScript)
 
 [lein-typescript](https://github.com/vbauer/lein-typescript) is a Leiningen plugin that allows to use TypeScript compiler.
 
@@ -54,6 +54,9 @@ Configuration parameters
 
   <dt>:excludes</dt>
   <dd>List of glob patterns to prevent processing of some files. It is also possible to use both variants: single pattern and collection of patterns.</dd>
+
+  <dt>:out-dir</dt>
+  <dd>Redirect output structure to the specified directory (it is undefined by default). ":out" parameter will be used in priority.</dd>
 
   <dt>:out</dt>
   <dd>Concatenate and emit output to single file which you can specify using this parameter (it is undefined by default).</dd>
