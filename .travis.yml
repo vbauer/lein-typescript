@@ -7,7 +7,7 @@ before_install:
   - sudo apt-get update
   - sudo apt-get install -y nodejs
   - sudo npm install -g typescript
-script: lein2 with-profile dev midje && lein2 install
+script: lein2 test && lein2 uberjar
 jdk:
   - openjdk7
   - openjdk6
