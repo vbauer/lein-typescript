@@ -1,16 +1,13 @@
 lein-typescript
 =================
 
-[lein-typescript](https://github.com/vbauer/lein-typescript) is a Leiningen plugin that allows to use TypeScript compiler.
-
 [![Build Status](https://travis-ci.org/vbauer/lein-typescript.svg?branch=master)](https://travis-ci.org/vbauer/lein-typescript)
 [![Dependencies Status](http://jarkeeper.com/vbauer/lein-typescript/status.png)](http://jarkeeper.com/vbauer/lein-typescript)
 
 
 > **TypeScript** is a free and open source programming language developed and maintained by Microsoft. It is a strict superset of JavaScript, and adds optional static typing and class-based object-oriented programming to the language. - (Wikipedia)[http://en.wikipedia.org/wiki/TypeScript]
 
-
-lein-typescript is a Leiningen plugin that allows to use TypeScript compiler.
+[lein-typescript](https://github.com/vbauer/lein-typescript) is a Leiningen plugin that allows to use TypeScript compiler.
 
 
 Pre-requirements
@@ -74,41 +71,26 @@ To enable this plugin in the compile stage, use the following hook:
 :hooks [lein-typescript.plugin]
 ```
 
-Examples
-========
-
-Detailed example
-----------------
-
-```clojure
-; TODO: Add an example
-```
-
-
-Example project
----------------
-
-Just clone the current repository and try to play with [example project](https://github.com/vbauer/lein-typescript/tree/master/example) for better understanding how to use lein-typescript.
-
 
 Usage
 =====
 
-To compile TypeScript files using configuration from project.clj, you should use:
-```bash
-lein typescript
-```
+To compile TypeScript files using configuration from project.clj, you should use: `lein typescript`
 
-To show help:
-```bash
-lein help typescript
-```
+To show help: `lein help typescript`
+
+
+Example project
+===============
+
+Just clone the current repository and try to play with [example project](https://github.com/vbauer/lein-typescript/tree/master/example) for better understanding how to use lein-typescript.
+
 
 
 Thanks to
 =========
 
-TODO: Say thanks
+[Microsoft Corporation](http://www.microsoft.com), [Anders Hejlsberg](https://github.com/ahejlsberg) and [TypeScript community](https://github.com/Microsoft/TypeScript) for the great programming language.
 
 
 
