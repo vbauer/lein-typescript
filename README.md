@@ -41,6 +41,7 @@ To configure lein-typescript, put the :typescript parameter in the file project.
   :excludes ["bad.ts"]
   :out "app.js"
   :remove-comments true
+  :preserve-const-enums true
 }
 ```
 
@@ -62,7 +63,11 @@ Configuration parameters
   <dd>Concatenate and emit output to single file which you can specify using this parameter (it is undefined by default).</dd>
 
   <dt>:remove-comments</dt>
-  <dd>Do not emit comments to output (default value is `false`).</dd>
+  <dd>Do not emit comments to output (default value is "false").</dd>
+
+  <dt>:preserve-const-enums</dt>
+  <dd>Do not erase const enum declarations in generated code (default value is "false").</dd>
+
 </dl>
 
 
@@ -87,7 +92,6 @@ Example project
 ===============
 
 Just clone the current repository and try to play with [example project](https://github.com/vbauer/lein-typescript/tree/master/example) for better understanding how to use lein-typescript.
-
 
 
 Thanks to

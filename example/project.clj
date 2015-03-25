@@ -17,4 +17,5 @@
                :excludes ["123"]
                ;:out "app.js"
                :out-dir "target"
-               :remove-comments true})
+               :remove-comments true
+               :preserve-const-enums true})

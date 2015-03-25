@@ -43,6 +43,7 @@
 (defn- conf-out-dir [conf] (get conf :out-dir))
 (defn- conf-debug [conf] (get conf :debug false))
 (defn- conf-remove-comments [conf] (get conf :remove-comments false))
+(defn- conf-preserve-const-enums [conf] (get conf :preserve-const-enums false))
 
 
 ; Internal API: Runner configuration
@@ -59,7 +60,7 @@
 (defn- param-out [conf] (if-let [out (conf-out conf)] ["--out" out]))
 (defn- param-out-dir [conf] (if-let [out-dir (conf-out-dir conf)] ["--outDir" out-dir]))
 (defn- param-remove-comments [conf] (if (conf-remove-comments conf) ["--removeComments"]))
-
+(defn- param-preserve-const-enums [conf] (if (conf-preserve-const-enums conf) ["--preserveConstEnums"]))
 
 ; Internal API: Runner
 
@@ -72,6 +73,7 @@
    (param-out conf)
    (param-out-dir conf)
    (param-remove-comments conf)
+   (param-preserve-const-enums conf)
    (source-list conf)))
 
 (defn- compile-typescript [project conf]
