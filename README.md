@@ -40,6 +40,7 @@ To configure lein-typescript, put the :typescript parameter in the file project.
   :sources ["*.ts" "resources/*.ts"]
   :excludes ["bad.ts"]
   :out "app.js"
+  :declaration true
   :remove-comments true
   :preserve-const-enums true
 }
@@ -67,6 +68,9 @@ Configuration parameters
 
   <dt>:preserve-const-enums</dt>
   <dd>Do not erase const enum declarations in generated code (default value is "false").</dd>
+
+  <dt>:declaration</dt>
+  <dd>Generates corresponding ".d.ts" file (default value is "false").</dd>
 
 </dl>
 
