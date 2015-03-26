@@ -5,6 +5,7 @@
             [leiningen.npm.process :as process]
             [leiningen.core.main :as main]
             [me.raynes.fs :as fs]
+            [citizen.os :as os]
             [clojure.java.io :as io]
             [clojure.string :as string]))
 
@@ -20,8 +21,13 @@
      " - installation: npm install typescript -g"
      " - configuration: https://github.com/vbauer/lein-typescript"])))
 
+(defn- clean-path [p]
+  (if os/windows?
+    (string/replace p #"/" "\\")
+    (string/replace p #"\\" "/")))
+
 (defn- to-coll [e] (if (nil? e) [] (if (sequential? e) e [e])))
-(defn- scan-files [patterns] (set (mapcat fs/glob patterns)))
+(defn- scan-files [patterns] (set (mapcat fs/glob (map clean-path patterns))))
 (defn- file-path [& parts] (string/join File/separator parts))
 (defn- abs-path [f] (.getAbsolutePath f))
 
