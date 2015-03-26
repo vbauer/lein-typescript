@@ -50,6 +50,7 @@
 (defn- conf-debug [conf] (get conf :debug false))
 (defn- conf-remove-comments [conf] (get conf :remove-comments false))
 (defn- conf-preserve-const-enums [conf] (get conf :preserve-const-enums false))
+(defn- conf-declaration [conf] (get conf :declaration false))
 
 
 ; Internal API: Runner configuration
@@ -67,6 +68,8 @@
 (defn- param-out-dir [conf] (if-let [out-dir (conf-out-dir conf)] ["--outDir" out-dir]))
 (defn- param-remove-comments [conf] (if (conf-remove-comments conf) ["--removeComments"]))
 (defn- param-preserve-const-enums [conf] (if (conf-preserve-const-enums conf) ["--preserveConstEnums"]))
+(defn- param-declaration [conf] (if (conf-declaration conf) ["--declaration"]))
+
 
 ; Internal API: Runner
 
@@ -78,6 +81,7 @@
   (concat
    (param-out conf)
    (param-out-dir conf)
+   (param-declaration conf)
    (param-remove-comments conf)
    (param-preserve-const-enums conf)
    (source-list conf)))
