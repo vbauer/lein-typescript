@@ -17,6 +17,8 @@
                :excludes ["123"]
                ;:out "app.js"
                :out-dir "target"
+               :module :amd
                :declaration true
                :remove-comments true
-               :preserve-const-enums true})
+               :preserve-const-enums true
+               :debug true})
