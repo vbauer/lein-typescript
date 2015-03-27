@@ -51,6 +51,12 @@
 (defn- conf-remove-comments [conf] (get conf :remove-comments false))
 (defn- conf-preserve-const-enums [conf] (get conf :preserve-const-enums false))
 (defn- conf-declaration [conf] (get conf :declaration false))
+(defn- conf-module [conf] (get conf :module))
+
+
+(defn- debug-log [conf & args]
+  (if (conf-debug conf)
+    (println (apply string/join " " args))))
 
 
 ; Internal API: Runner configuration
@@ -69,6 +75,7 @@
 (defn- param-remove-comments [conf] (if (conf-remove-comments conf) ["--removeComments"]))
 (defn- param-preserve-const-enums [conf] (if (conf-preserve-const-enums conf) ["--preserveConstEnums"]))
 (defn- param-declaration [conf] (if (conf-declaration conf) ["--declaration"]))
+(defn- param-module [conf] (if-let [module (conf-module conf)] ["--module" (name module)]))
 
 
 ; Internal API: Runner
@@ -84,6 +91,7 @@
    (param-declaration conf)
    (param-remove-comments conf)
    (param-preserve-const-enums conf)
+   (param-module conf)
    (source-list conf)))
 
 (defn- compile-typescript [project conf]
@@ -91,8 +99,7 @@
         cmd (typescript-cmd)
         params (typescript-params conf)
         args (concat [cmd] params)]
-    (if (conf-debug conf)
-      (println (string/join " " args)))
+    (debug-log conf args)
     (process/exec root args)))
 
 (defn- process-config [project conf]
