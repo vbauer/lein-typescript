@@ -82,7 +82,7 @@
 
 (defn- typescript-cmd []
   (let [local (file-path DEF_TYPESCRIPT_DIR DEF_TYPESCRIPT_CMD)]
-    (if (.exists (io/file local)) local DEF_TYPESCRIPT_CMD)))
+    (if (.exists (fs/file local)) local DEF_TYPESCRIPT_CMD)))
 
 (defn- typescript-params [conf]
   (concat
