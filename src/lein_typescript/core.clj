@@ -23,8 +23,8 @@
 
 (defn- clean-path [p]
   (if os/windows?
-    (string/replace p #"/" "\\")
-    (string/replace p #"\\" "/")))
+    (string/replace p "/" "\\")
+    (string/replace p "\\" "/")))
 
 (defn- to-coll [e] (if (nil? e) [] (if (sequential? e) e [e])))
 (defn- scan-files [patterns] (set (mapcat fs/glob (map clean-path patterns))))
