@@ -43,6 +43,8 @@ To configure lein-typescript, put the :typescript parameter in the file project.
   :declaration true
   :remove-comments true
   :preserve-const-enums true
+  :suppress-implicit-any-index-errors true
+  :target :es5
 }
 ```
 
@@ -77,6 +79,9 @@ Configuration parameters
 
   <dt>:module</dt>
   <dd>Specify module code generation: :commonjs or :amd (it is undefined by default).</dd>
+
+  <dt>:target</dt>
+  <dd>Specify ECMAScript target version: :es3 (default), :es5, or :es6 (experimental).</dd>
 
 </dl>
 

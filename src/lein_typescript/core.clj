@@ -29,8 +29,7 @@
 (defn- to-coll [e] (if (nil? e) [] (if (sequential? e) e [e])))
 (defn- file-path [& parts] (string/join File/separator parts))
 (defn- abs-path [f] (.getAbsolutePath f))
-(defn- scan-files [patterns]
-  (set (mapcat fs/glob (map clean-path patterns))))
+(defn- scan-files [patterns] (set (mapcat fs/glob (map clean-path patterns))))
 
 
 ; Internal API: Configuration
@@ -53,6 +52,7 @@
 (defn- conf-preserve-const-enums [conf] (get conf :preserve-const-enums false))
 (defn- conf-declaration [conf] (get conf :declaration false))
 (defn- conf-module [conf] (get conf :module))
+(defn- conf-target [conf] (if-let [t (get conf :target)] (string/upper-case (name t))))
 (defn- conf-suppress-implicit-any-index-errors [conf]
   (get conf :suppress-implicit-any-index-errors))
 
@@ -78,8 +78,12 @@
 (defn- param-preserve-const-enums [conf] (if (conf-preserve-const-enums conf) ["--preserveConstEnums"]))
 (defn- param-declaration [conf] (if (conf-declaration conf) ["--declaration"]))
 (defn- param-module [conf] (if-let [module (conf-module conf)] ["--module" (name module)]))
+(defn- param-target [conf]
+  (if-let [t (conf-target conf)]
+    ["--target" (string/upper-case (name t))]))
 (defn- param-suppress-implicit-any-index-errors [conf]
-  (if (conf-suppress-implicit-any-index-errors conf) ["--suppressImplicitAnyIndexErrors"]))
+  (if (conf-suppress-implicit-any-index-errors conf)
+    ["--suppressImplicitAnyIndexErrors"]))
 
 
 ; Internal API: Runner
@@ -97,6 +101,7 @@
    (param-preserve-const-enums conf)
    (param-suppress-implicit-any-index-errors conf)
    (param-module conf)
+   (param-target conf)
    (source-list conf)))
 
 (defn- compile-typescript [project conf]

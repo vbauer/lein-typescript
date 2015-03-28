@@ -32,6 +32,8 @@
       - Do not erase const enum declarations in generated code.
     :suppress-implicit-any-index-errors
       - Suppress noImplicitAny errors for indexing objects lacking index signatures.
+    :target
+      - Specify ECMAScript target version: :es3 (default), :es5, or :es6 (experimental).
 
   Usage:
     lein typescript"

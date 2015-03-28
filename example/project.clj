@@ -22,4 +22,5 @@
                :remove-comments true
                :preserve-const-enums true
                :suppress-implicit-any-index-errors true
+               :target :es5
                :debug true})
