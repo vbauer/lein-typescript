@@ -21,4 +21,5 @@
                :declaration true
                :remove-comments true
                :preserve-const-enums true
+               :suppress-implicit-any-index-errors true
                :debug true})

@@ -69,6 +69,9 @@ Configuration parameters
   <dt>:preserve-const-enums</dt>
   <dd>Do not erase const enum declarations in generated code (default value is "false").</dd>
 
+  <dt>:suppress-implicit-any-index-errors</dt>
+  <dd>Suppress noImplicitAny errors for indexing objects lacking index signatures (default value is "false").</dd>
+
   <dt>:declaration</dt>
   <dd>Generates corresponding ".d.ts" file (default value is "false").</dd>
 

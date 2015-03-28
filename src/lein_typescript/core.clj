@@ -27,9 +27,10 @@
     (string/replace p "\\" "/")))
 
 (defn- to-coll [e] (if (nil? e) [] (if (sequential? e) e [e])))
-(defn- scan-files [patterns] (set (mapcat fs/glob (map clean-path patterns))))
 (defn- file-path [& parts] (string/join File/separator parts))
 (defn- abs-path [f] (.getAbsolutePath f))
+(defn- scan-files [patterns]
+  (set (mapcat fs/glob (map clean-path patterns))))
 
 
 ; Internal API: Configuration
@@ -52,7 +53,8 @@
 (defn- conf-preserve-const-enums [conf] (get conf :preserve-const-enums false))
 (defn- conf-declaration [conf] (get conf :declaration false))
 (defn- conf-module [conf] (get conf :module))
-
+(defn- conf-suppress-implicit-any-index-errors [conf]
+  (get conf :suppress-implicit-any-index-errors))
 
 (defn- debug-log [conf & args]
   (if (conf-debug conf)
@@ -76,6 +78,8 @@
 (defn- param-preserve-const-enums [conf] (if (conf-preserve-const-enums conf) ["--preserveConstEnums"]))
 (defn- param-declaration [conf] (if (conf-declaration conf) ["--declaration"]))
 (defn- param-module [conf] (if-let [module (conf-module conf)] ["--module" (name module)]))
+(defn- param-suppress-implicit-any-index-errors [conf]
+  (if (conf-suppress-implicit-any-index-errors conf) ["--suppressImplicitAnyIndexErrors"]))
 
 
 ; Internal API: Runner
@@ -91,6 +95,7 @@
    (param-declaration conf)
    (param-remove-comments conf)
    (param-preserve-const-enums conf)
+   (param-suppress-implicit-any-index-errors conf)
    (param-module conf)
    (source-list conf)))
 
