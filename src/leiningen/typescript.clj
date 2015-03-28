@@ -24,16 +24,18 @@
       - Redirect output structure to the directory.
     :declaration
       - Generates corresponding '.d.ts' file.
+    :source-map
+      - Generates corresponding '.map' file.
     :module
       - Specify module code generation: :commonjs or :amd
+    :target
+      - Specify ECMAScript target version: :es3 (default), :es5, or :es6 (experimental).
     :remove-comments
       - Do not emit comments to output.
     :preserve-const-enums
       - Do not erase const enum declarations in generated code.
     :suppress-implicit-any-index-errors
       - Suppress noImplicitAny errors for indexing objects lacking index signatures.
-    :target
-      - Specify ECMAScript target version: :es3 (default), :es5, or :es6 (experimental).
 
   Usage:
     lein typescript"

@@ -77,6 +77,9 @@ Configuration parameters
   <dt>:declaration</dt>
   <dd>Generates corresponding ".d.ts" file (default value is "false").</dd>
 
+  <dt>:source-map</dt>
+  <dd>Generates corresponding '.map' file (default is "false").</dd>
+
   <dt>:module</dt>
   <dd>Specify module code generation: :commonjs or :amd (it is undefined by default).</dd>
 

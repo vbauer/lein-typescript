@@ -52,7 +52,8 @@
 (defn- conf-preserve-const-enums [conf] (get conf :preserve-const-enums false))
 (defn- conf-declaration [conf] (get conf :declaration false))
 (defn- conf-module [conf] (get conf :module))
-(defn- conf-target [conf] (if-let [t (get conf :target)] (string/upper-case (name t))))
+(defn- conf-source-map [conf] (get conf :source-map false))
+(defn- conf-target [conf] (get conf :target))
 (defn- conf-suppress-implicit-any-index-errors [conf]
   (get conf :suppress-implicit-any-index-errors))
 
@@ -78,12 +79,10 @@
 (defn- param-preserve-const-enums [conf] (if (conf-preserve-const-enums conf) ["--preserveConstEnums"]))
 (defn- param-declaration [conf] (if (conf-declaration conf) ["--declaration"]))
 (defn- param-module [conf] (if-let [module (conf-module conf)] ["--module" (name module)]))
-(defn- param-target [conf]
-  (if-let [t (conf-target conf)]
-    ["--target" (string/upper-case (name t))]))
+(defn- param-source-map [conf] (if (conf-source-map conf) ["--sourceMap"]))
+(defn- param-target [conf] (if-let [t (conf-target conf)] ["--target" (string/upper-case (name t))]))
 (defn- param-suppress-implicit-any-index-errors [conf]
-  (if (conf-suppress-implicit-any-index-errors conf)
-    ["--suppressImplicitAnyIndexErrors"]))
+  (if (conf-suppress-implicit-any-index-errors conf) ["--suppressImplicitAnyIndexErrors"]))
 
 
 ; Internal API: Runner
@@ -96,12 +95,13 @@
   (concat
    (param-out conf)
    (param-out-dir conf)
+   (param-module conf)
+   (param-target conf)
+   (param-source-map conf)
    (param-declaration conf)
    (param-remove-comments conf)
    (param-preserve-const-enums conf)
    (param-suppress-implicit-any-index-errors conf)
-   (param-module conf)
-   (param-target conf)
    (source-list conf)))
 
 (defn- compile-typescript [project conf]

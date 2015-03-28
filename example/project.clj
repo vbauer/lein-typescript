@@ -19,6 +19,7 @@
                :out-dir "target"
                :module :amd
                :declaration true
+               :source-map true
                :remove-comments true
                :preserve-const-enums true
                :suppress-implicit-any-index-errors true
