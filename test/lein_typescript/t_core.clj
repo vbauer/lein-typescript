@@ -1,12 +1,14 @@
 (ns ^{:author "Vladislav Bauer"}
   lein-typescript.t-core
   (:require [clojure.test :as t]
-            [lein-typescript.core]
+            [lein-typescript.core :as tsc]
             [me.raynes.fs :as fs]))
 
 
-; TODO: write unit tests
+(def ^:private DEF_CONFIG
+  {:typescript
+   {:sources "example/resources/*.ts"}})
+
 
 (t/deftest testing
- (t/is (= 4 (+ 2 2)))
- (t/is (= 7 (+ 3 4))))
+ (t/is (nil? (tsc/typescript DEF_CONFIG))))

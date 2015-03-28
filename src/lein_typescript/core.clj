@@ -34,7 +34,7 @@
 
 ; Internal API: Configuration
 
-(def ^:public DEF_TYPESCRIPT_CMD "tsc")
+(def ^:private DEF_TYPESCRIPT_CMD "tsc")
 (def ^:private DEF_TYPESCRIPT_DIR
   (file-path "node_modules" "typescript" "bin"))
 
