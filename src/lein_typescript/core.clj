@@ -5,7 +5,6 @@
             [leiningen.npm.process :as process]
             [leiningen.core.main :as main]
             [me.raynes.fs :as fs]
-            [citizen.os :as os]
             [clojure.java.io :as io]
             [clojure.string :as string]))
 
@@ -22,9 +21,10 @@
      " - configuration: https://github.com/vbauer/lein-typescript"])))
 
 (defn- clean-path [p]
-  (if os/windows?
-    (string/replace p "/" "\\")
-    (string/replace p "\\" "/")))
+  (if (not (nil? p))
+    (if (.startsWith (System/getProperty "os.name") "Windows")
+      (string/replace p "/" "\\")
+      (string/replace p "\\" "/"))))
 
 (defn- to-coll [e] (if (nil? e) [] (if (sequential? e) e [e])))
 (defn- file-path [& parts] (string/join File/separator parts))
