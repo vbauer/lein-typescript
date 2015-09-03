@@ -1,4 +1,4 @@
-(defproject example "0.1.0-SNAPSHOT"
+(defproject example "0.1.1-SNAPSHOT"
   :description "Simple example of using lein-typescript"
   :url "https://github.com/vbauer/lein-typescript"
   :license {:name "Eclipse Public License"
@@ -6,7 +6,7 @@
 
 
   ; List of plugins
-  :plugins [[lein-typescript "0.1.0-SNAPSHOT"]]
+  :plugins [[lein-typescript "0.1.1-SNAPSHOT"]]
 
   ; List of hooks
   ; It's used for running lein-typescript during compile phase

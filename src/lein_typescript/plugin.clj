@@ -9,7 +9,7 @@
 ; Internal API: Configuration
 
 (def ^:private DEF_TYPESCRIPT_DEP "typescript")
-(def ^:private DEF_TYPESCRIPT_VER ">=1.4.1")
+(def ^:private DEF_TYPESCRIPT_VER ">=1.5.4")
 
 
 ; Internal API: Middlewares
