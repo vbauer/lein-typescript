@@ -86,6 +86,9 @@ Configuration parameters
   <dt>:target</dt>
   <dd>Specify ECMAScript target version: :es3 (default), :es5, or :es6 (experimental).</dd>
 
+  <dt>:watch</dt>
+  <dd>Watch input files. It could be helpful to use this parameter with <a href="https://github.com/Raynes/lein-pdo">lein-pdo</a> and/or with separate profile (default is "false").</dd>
+
 </dl>
 
 

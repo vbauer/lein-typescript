@@ -6,7 +6,7 @@
 
 
   ; List of plugins
-  :plugins [[lein-typescript "0.1.1-SNAPSHOT"]]
+  :plugins [[lein-typescript "0.1.2-SNAPSHOT"]]
 
   ; List of hooks
   ; It's used for running lein-typescript during compile phase
@@ -15,6 +15,7 @@
   ; lein-typescript configuration
   :typescript {:sources ["resources\\*.ts"]
                :excludes ["123"]
+               ;:watch true
                ;:out "app.js"
                :out-dir "target"
                :module :amd

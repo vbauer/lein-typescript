@@ -54,6 +54,7 @@
 (defn- conf-module [conf] (get conf :module))
 (defn- conf-source-map [conf] (get conf :source-map false))
 (defn- conf-target [conf] (get conf :target))
+(defn- conf-watch [conf] (get conf :watch false))
 (defn- conf-suppress-implicit-any-index-errors [conf]
   (get conf :suppress-implicit-any-index-errors))
 
@@ -81,6 +82,7 @@
 (defn- param-module [conf] (if-let [module (conf-module conf)] ["--module" (name module)]))
 (defn- param-source-map [conf] (if (conf-source-map conf) ["--sourceMap"]))
 (defn- param-target [conf] (if-let [t (conf-target conf)] ["--target" (string/upper-case (name t))]))
+(defn- param-watch [conf] (if (conf-watch conf) ["--watch"]))
 (defn- param-suppress-implicit-any-index-errors [conf]
   (if (conf-suppress-implicit-any-index-errors conf) ["--suppressImplicitAnyIndexErrors"]))
 
@@ -93,6 +95,7 @@
 
 (defn- typescript-params [conf]
   (concat
+   (param-watch conf)
    (param-out conf)
    (param-out-dir conf)
    (param-module conf)
