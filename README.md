@@ -104,7 +104,8 @@ To enable this plugin in the compile stage, use the following hook:
 Usage
 =====
 
-To compile TypeScript files using configuration from project.clj, you should use: `lein typescript`
+To compile TypeScript files using configuration from project.clj, you should use: `lein typescript`.
+It is also possible to use short alias for `typescript` task: `lein ts`.
 
 To show help: `lein help typescript`
 
