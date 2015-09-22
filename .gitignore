@@ -8,6 +8,7 @@ pom.xml.asc
 /.lein-*
 /.nrepl-port
 node_modules/
+npm-debug.log
 *.js
 *.map
 apt.key
