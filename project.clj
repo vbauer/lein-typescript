@@ -1,4 +1,4 @@
-(defproject lein-typescript "0.1.2"
+(defproject lein-typescript "0.1.3-SNAPSHOT"
   :description "A Leiningen plugin for running TypeScript compiler"
   :url "https://github.com/vbauer/lein-typescript"
   :license {:name "Eclipse Public License"
