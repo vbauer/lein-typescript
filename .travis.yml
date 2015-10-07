@@ -9,7 +9,6 @@ before_install:
   - sudo npm install -g typescript
 script: lein2 test && lein2 uberjar
 jdk:
-  - openjdk6
   - openjdk7
   - oraclejdk7
   - oraclejdk8
