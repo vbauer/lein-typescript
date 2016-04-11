@@ -54,7 +54,7 @@ Configuration parameters
 <dl>
 
   <dt>:sources</dt>
-  <dd>List of input CoffeeScript sources. It is possible to use a single source or a vector of sources. To configure this parameter, you could also use a <a href="http://en.wikipedia.org/wiki/Glob_(programming)">Glob Patterns</a>.</dd>
+  <dd>List of input TypeScript sources. It is possible to use a single source or a vector of sources. To configure this parameter, you could also use a <a href="http://en.wikipedia.org/wiki/Glob_(programming)">Glob Patterns</a>.</dd>
 
   <dt>:excludes</dt>
   <dd>List of glob patterns to prevent processing of some files. It is also possible to use both variants: single pattern and collection of patterns.</dd>
