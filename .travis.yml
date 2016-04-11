@@ -2,10 +2,10 @@ language: clojure
 lein: lein2
 before_install:
   - sudo apt-get purge nodejs npm
-  - sudo apt-get install -y python-software-properties
+  - sudo apt-get install -y --force-yes python-software-properties
   - sudo add-apt-repository -y ppa:chris-lea/node.js
   - sudo apt-get update
-  - sudo apt-get install -y nodejs
+  - sudo apt-get install -y --force-yes nodejs
   - sudo npm install -g typescript
 script: lein2 test && lein2 uberjar
 jdk:
