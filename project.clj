@@ -1,4 +1,4 @@
-(defproject lein-typescript "0.1.3-SNAPSHOT"
+(defproject lein-typescript "0.1.3"
   :description "A Leiningen plugin for running TypeScript compiler"
   :url "https://github.com/vbauer/lein-typescript"
   :license {:name "Eclipse Public License"
@@ -6,15 +6,6 @@
 
   :dependencies [[lein-npm "0.6.1" :exclusions [org.clojure/clojure]]
                  [me.raynes/fs "1.4.6" :exclusions [org.clojure/clojure]]]
-
-  :profiles {
-    :dev {}
-    :prod {:plugins [[lein-release "1.0.6" :exclusions [org.clojure/clojure]]]
-           :scm {:name "git"
-                 :url "https://github.com/vbauer/lein-typescript"}
-           :lein-release {:deploy-via :clojars
-                          :scm :git}}
-  }
 
   :pedantic? :abort
   :eval-in-leiningen true
