@@ -6,7 +6,7 @@
 
 
   ; List of plugins
-  :plugins [[lein-typescript "0.1.2-SNAPSHOT"]]
+  :plugins [[lein-typescript "0.1.3"]]
 
   ; List of hooks
   ; It's used for running lein-typescript during compile phase
