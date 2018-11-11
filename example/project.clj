@@ -6,7 +6,7 @@
 
 
   ; List of plugins
-  :plugins [[lein-typescript "0.1.3"]]
+  :plugins [[lein-typescript "0.1.4"]]
 
   ; List of hooks
   ; It's used for running lein-typescript during compile phase
@@ -22,7 +22,5 @@
                :declaration true
                :source-map true
                :remove-comments true
-               :preserve-const-enums true
-               :suppress-implicit-any-index-errors true
                :target :es5
                :debug true})
