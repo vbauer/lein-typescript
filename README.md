@@ -2,7 +2,6 @@ lein-typescript
 =================
 
 [![Build Status](https://travis-ci.org/vbauer/lein-typescript.svg?branch=master)](https://travis-ci.org/vbauer/lein-typescript)
-[![Dependencies Status](http://jarkeeper.com/vbauer/lein-typescript/status.png)](http://jarkeeper.com/vbauer/lein-typescript)
 
 
 > **TypeScript** is a free and open source programming language developed and maintained by Microsoft. It is a strict superset of JavaScript, and adds optional static typing and class-based object-oriented programming to the language. - [Wikipedia](https://en.wikipedia.org/wiki/TypeScript)
@@ -28,6 +27,11 @@ Install [TypeScript](https://www.npmjs.org/package/typescript) to use lein-types
 * You can also install TypeScript in the current directory: `npm install typescript`
 * Use [lein-npm](https://github.com/bodil/lein-npm) plugin: `lein npm install`
 * Use just Leiningen: `lein deps`
+
+To enable lein-typescript for your project, put the following in the :plugins vector of your project.clj file:
+
+![latest-version](https://clojars.org/lein-typescript/latest-version.svg)
+
 
 
 Configuration
