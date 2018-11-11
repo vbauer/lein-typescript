@@ -49,14 +49,11 @@
 (defn- conf-out-dir [conf] (get conf :out-dir))
 (defn- conf-debug [conf] (get conf :debug false))
 (defn- conf-remove-comments [conf] (get conf :remove-comments false))
-(defn- conf-preserve-const-enums [conf] (get conf :preserve-const-enums false))
 (defn- conf-declaration [conf] (get conf :declaration false))
 (defn- conf-module [conf] (get conf :module))
 (defn- conf-source-map [conf] (get conf :source-map false))
 (defn- conf-target [conf] (get conf :target))
 (defn- conf-watch [conf] (get conf :watch false))
-(defn- conf-suppress-implicit-any-index-errors [conf]
-  (get conf :suppress-implicit-any-index-errors))
 
 (defn- debug-log [conf & args]
   (if (conf-debug conf)
@@ -74,17 +71,14 @@
               "Source list is empty. Check parameters :sources & :excludes"))
       (map abs-path sources))))
 
-(defn- param-out [conf] (if-let [out (conf-out conf)] ["--out" out]))
+(defn- param-out [conf] (if-let [out (conf-out conf)] ["--outFile" out]))
 (defn- param-out-dir [conf] (if-let [out-dir (conf-out-dir conf)] ["--outDir" out-dir]))
 (defn- param-remove-comments [conf] (if (conf-remove-comments conf) ["--removeComments"]))
-(defn- param-preserve-const-enums [conf] (if (conf-preserve-const-enums conf) ["--preserveConstEnums"]))
 (defn- param-declaration [conf] (if (conf-declaration conf) ["--declaration"]))
 (defn- param-module [conf] (if-let [module (conf-module conf)] ["--module" (name module)]))
 (defn- param-source-map [conf] (if (conf-source-map conf) ["--sourceMap"]))
 (defn- param-target [conf] (if-let [t (conf-target conf)] ["--target" (string/upper-case (name t))]))
 (defn- param-watch [conf] (if (conf-watch conf) ["--watch"]))
-(defn- param-suppress-implicit-any-index-errors [conf]
-  (if (conf-suppress-implicit-any-index-errors conf) ["--suppressImplicitAnyIndexErrors"]))
 
 
 ; Internal API: Runner
@@ -103,8 +97,6 @@
    (param-source-map conf)
    (param-declaration conf)
    (param-remove-comments conf)
-   (param-preserve-const-enums conf)
-   (param-suppress-implicit-any-index-errors conf)
    (source-list conf)))
 
 (defn- compile-typescript [project conf]

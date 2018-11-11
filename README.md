@@ -46,8 +46,6 @@ To configure lein-typescript, put the :typescript parameter in the file project.
   :out "app.js"
   :declaration true
   :remove-comments true
-  :preserve-const-enums true
-  :suppress-implicit-any-index-errors true
   :target :es5
 }
 ```
@@ -71,12 +69,6 @@ Configuration parameters
 
   <dt>:remove-comments</dt>
   <dd>Do not emit comments to output (default value is "false").</dd>
-
-  <dt>:preserve-const-enums</dt>
-  <dd>Do not erase const enum declarations in generated code (default value is "false").</dd>
-
-  <dt>:suppress-implicit-any-index-errors</dt>
-  <dd>Suppress noImplicitAny errors for indexing objects lacking index signatures (default value is "false").</dd>
 
   <dt>:declaration</dt>
   <dd>Generates corresponding ".d.ts" file (default value is "false").</dd>

@@ -7,7 +7,12 @@
 
 (def ^:private DEF_CONFIG
   {:typescript
-   {:sources "example/resources/*.ts"}})
+   {:sources "example/resources/*.ts"
+    :excludes []
+    :out (.getAbsolutePath (fs/temp-file "compiled-file"))
+    :source-map true
+    :remove-comments true
+    :debug true}})
 
 
 (t/deftest testing
